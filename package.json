@@ -28,6 +28,7 @@
 		]
 	},
 	"dependencies": {
+		"fs-jetpack": "^5.1.0",
 		"kleur": "^4.1.5",
 		"yargs-parser": "^21.1.1"
 	}

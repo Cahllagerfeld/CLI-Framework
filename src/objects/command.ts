@@ -15,7 +15,7 @@ export class Command implements ICommand {
 	public arguments?: string[] | undefined;
 	public options?: string[] | undefined;
 
-	constructor(props: ICommand) {
+	constructor(props?: ICommand) {
 		this.name = "";
 		this.description = undefined;
 		this.run = () => {};
