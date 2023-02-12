@@ -3,12 +3,11 @@ import { Runner } from "./runner.js";
 class Builder {
 	private brand: string;
 	private nativeDirectory: string;
-	private pluginDirectory: string;
+	private pluginConfig: { directory: string; matching: string };
 
 	constructor(brand: string) {
 		this.brand = brand;
 		this.nativeDirectory = "";
-		this.pluginDirectory = "";
 	}
 
 	public src(directory: string): Builder {
@@ -16,8 +15,8 @@ class Builder {
 		return this;
 	}
 
-	public plugins(pluginRegex: string) {
-		this.pluginDirectory = pluginRegex;
+	public plugins(directory: string, matching: string) {
+		this.pluginConfig = { directory, matching };
 		return this;
 	}
 
