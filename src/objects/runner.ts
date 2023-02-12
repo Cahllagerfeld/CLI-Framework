@@ -1,4 +1,4 @@
-import { parseParams } from "./tools/parse-params.js";
+import { parse_params } from "./tools/parse-params.js";
 
 export class Runner {
 	run: (this: Runner, args: string | string[]) => Promise<void>;
@@ -8,6 +8,6 @@ export class Runner {
 }
 
 export async function Run(this: Runner, args: string | string[]) {
-	const parsedArgs = await parseParams(args);
-	console.log(parsedArgs);
+	const parsed_args = await parse_params(args);
+	console.log(parsed_args);
 }

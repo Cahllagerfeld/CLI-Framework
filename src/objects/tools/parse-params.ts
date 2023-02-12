@@ -1,19 +1,19 @@
-export async function parseParams(commandArray: string | string[]) {
-	const { default: yargsParser } = await import("yargs-parser");
+export async function parse_params(command_array: string | string[]) {
+	const { default: yargs_parser } = await import("yargs-parser");
 
-	if (typeof commandArray === "string") {
-		commandArray = commandArray.split(" ");
+	if (typeof command_array === "string") {
+		command_array = command_array.split(" ");
 	}
 
-	commandArray = commandArray as string[];
+	command_array = command_array as string[];
 
-	if (process.argv === commandArray) {
-		commandArray = commandArray.slice(2);
+	if (process.argv === command_array) {
+		command_array = command_array.slice(2);
 	}
 
-	const parsedArgs = yargsParser(commandArray);
-	const args = parsedArgs._.slice();
-	delete parsedArgs._;
+	const parsed_args = yargs_parser(command_array);
+	const args = parsed_args._.slice();
+	delete parsed_args._;
 
-	return { ...parsedArgs, args };
+	return { ...parsed_args, args };
 }
