@@ -1,4 +1,4 @@
-export async function parseArgs(commandArray: string | string[]) {
+export async function parseParams(commandArray: string | string[]) {
 	const { default: yargsParser } = await import("yargs-parser");
 
 	if (typeof commandArray === "string") {
