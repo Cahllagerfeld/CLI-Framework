@@ -1,1 +1,1 @@
-export class Builder
+export class Builder {}
