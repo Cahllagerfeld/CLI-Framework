@@ -5,6 +5,7 @@
 
 		/* Modules */
 		"module": "ESNext" /* Specify what module code is generated. */,
+		"moduleResolution": "nodenext",
 
 		/* Emit */
 		"declaration": true /* Generate .d.ts files from TypeScript and JavaScript files in your project. */,
