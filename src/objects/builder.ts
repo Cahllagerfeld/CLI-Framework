@@ -2,16 +2,16 @@ import { Runner } from "./runner.js";
 
 class Builder {
 	private brand: string;
-	private native_directory: string;
+	private default_plugin: string;
 	private plugin_config: { directory: string; matching: string };
 
 	constructor(brand: string) {
 		this.brand = brand;
-		this.native_directory = "";
+		this.default_plugin = "";
 	}
 
 	public src(directory: string): Builder {
-		this.native_directory = directory;
+		this.default_plugin = directory;
 		return this;
 	}
 
@@ -22,6 +22,10 @@ class Builder {
 
 	public build(): Runner {
 		const runner = new Runner();
+
+		if (this.default_plugin) runner.add_plugin(this.default_plugin);
+
+		// TODO Load non-default plugins
 
 		return runner;
 	}
