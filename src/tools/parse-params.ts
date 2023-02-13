@@ -15,5 +15,7 @@ export async function parse_params(command_array: string | string[]) {
 	const args = parsed_args._.slice();
 	delete parsed_args._;
 
-	return { ...parsed_args, args };
+	const options = { ...parsed_args };
+
+	return { options, args };
 }

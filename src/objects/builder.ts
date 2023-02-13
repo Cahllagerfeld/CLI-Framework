@@ -24,7 +24,6 @@ class Builder {
 		const runner = new Runner();
 
 		if (this.default_plugin) runner.add_plugin(this.default_plugin);
-
 		return runner;
 	}
 }

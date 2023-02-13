@@ -21,11 +21,14 @@ export async function load_plugin_from_directory(directory: string, options: { n
 			plugin.commands = plugin.commands.concat(
 				await Promise.all(
 					commands.map(async (file) => {
-						return await load_command_from_file(path.join(directory, dir, file));
+						const command = await load_command_from_file(path.join(directory, dir, file));
+						const command_path = path.parse(file);
+						command.path = path.join(command_path.dir, command_path.name);
+						return command;
 					})
 				)
 			);
 		}
 	}
-	return Plugin;
+	return plugin;
 }
