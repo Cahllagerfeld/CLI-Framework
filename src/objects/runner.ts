@@ -40,9 +40,27 @@ export async function Run(this: Runner, args: string | string[]) {
 
 export function find_command(runner: Runner, args: string[]) {
 	let active_command: Command;
+	let temp_path = args;
 	let path_rest: string[] = [];
+	let resolved_path: string[] = [];
+
+	for (const arg of args) {
+		resolved_path = [...resolved_path, arg];
+		temp_path = temp_path.slice(1);
+		const potential_command = runner.commands.find((command) => {
+			const command_path_array = command.path.split("/");
+			return (
+				command_path_array.length === resolved_path.length &&
+				command_path_array.every((val, index) => val === resolved_path[index])
+			);
+		});
+
+		if (potential_command) {
+			path_rest = temp_path;
+			active_command = potential_command;
+		}
+	}
 
 	// TODO Handling for non-existent command
-
 	return { active_command, path_rest };
 }
