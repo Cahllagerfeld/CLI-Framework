@@ -24,6 +24,9 @@ class Builder {
 		const runner = new Runner();
 
 		if (this.default_plugin) runner.add_plugin(this.default_plugin);
+
+		// TODO Load non-default plugins
+
 		return runner;
 	}
 }
