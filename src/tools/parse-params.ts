@@ -12,7 +12,7 @@ export async function parse_params(command_array: string | string[]) {
 	}
 
 	const parsed_args = yargs_parser(command_array);
-	const args = parsed_args._.slice();
+	const args = parsed_args._.slice().map((item) => item.toString());
 	delete parsed_args._;
 
 	const options = { ...parsed_args };

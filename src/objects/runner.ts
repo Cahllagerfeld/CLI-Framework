@@ -29,23 +29,20 @@ export class Runner {
 }
 
 export async function Run(this: Runner, args: string | string[]) {
-	const parsed_args = await parse_params(args);
-	const active_command = find_command(this, parsed_args);
+	const { args: parsed_args } = await parse_params(args);
+
+	const { active_command, path_rest } = find_command(this, parsed_args);
 
 	if (active_command?.run) {
 		await active_command.run();
 	}
 }
 
-export function find_command(runner: Runner, params: { options: any; args: (string | number)[] }) {
-	const { args } = params;
-
-	const params_path = args.join("/");
+export function find_command(runner: Runner, args: string[]) {
+	let active_command: Command;
+	let path_rest: string[] = [];
 
 	// TODO Handling for non-existent command
 
-	const command = runner.commands.find((command) => {
-		return command.path === params_path;
-	});
-	return command;
+	return { active_command, path_rest };
 }
