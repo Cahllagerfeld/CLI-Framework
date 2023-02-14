@@ -1,4 +1,4 @@
-import { Command, ICommand } from "../objects/command.js";
+import { Command, CLI_Command } from "../objects/command.js";
 import fs from "fs-jetpack";
 
 export async function load_command_from_file(file: string) {
@@ -8,7 +8,7 @@ export async function load_command_from_file(file: string) {
 
 	command.name = fs.inspect(file).name;
 
-	let { default: command_module }: { default: ICommand } = await import(file);
+	let { default: command_module }: { default: CLI_Command } = await import(file);
 
 	command.name = command_module.name;
 	command.description = command_module.description;

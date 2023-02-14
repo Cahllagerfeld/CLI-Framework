@@ -1,20 +1,22 @@
-export interface ICommand {
+import { CLI_Toolbox } from "./toolbox.js";
+
+export interface CLI_Command {
 	name: string;
 	description?: string;
-	run: () => Promise<void>;
+	run: (toolbox: CLI_Toolbox) => Promise<void>;
 	arguments?: string[];
 	options?: string[];
 }
 
-export class Command implements ICommand {
+export class Command implements CLI_Command {
 	public name: string;
 	public description?: string | undefined;
-	public run: () => Promise<void>;
+	public run: (toolbox: CLI_Toolbox) => Promise<void>;
 	public arguments?: string[] | undefined;
 	public options?: string[] | undefined;
 	public path?: string | undefined;
 
-	constructor(props?: ICommand) {
+	constructor(props?: CLI_Command) {
 		this.name = "";
 		this.description = undefined;
 		this.run = async () => {};

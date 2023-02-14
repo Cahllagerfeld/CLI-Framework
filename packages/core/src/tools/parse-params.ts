@@ -15,7 +15,7 @@ export async function parse_params(command_array: string | string[]) {
 	const args = parsed_args._.slice().map((item) => item.toString());
 	delete parsed_args._;
 
-	const options = { ...parsed_args };
+	const options = { ...parsed_args } as { [key: string]: string | boolean | number };
 
 	return { options, args };
 }
