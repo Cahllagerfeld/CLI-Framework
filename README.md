@@ -1,3 +1,3 @@
 # CLI Framework
 
-CLI Framework based on ESM
+CLI Framework based on Typescript and ESM
