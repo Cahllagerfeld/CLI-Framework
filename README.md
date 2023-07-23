@@ -2,4 +2,4 @@
 
 CLI Framework based on Typescript and ESM
 
-Idea is based on
+Idea is based on Gluegun
