@@ -1,4 +1,6 @@
-import { CLI_Toolbox } from "./toolbox.js";
+// import { CLI_Toolbox } from "./toolbox.js";
+
+type CLI_Toolbox = {};
 
 export interface CLI_Command {
 	name: string;

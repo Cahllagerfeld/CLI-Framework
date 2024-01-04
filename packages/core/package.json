@@ -2,25 +2,28 @@
 	"name": "@cli-framework/core",
 	"version": "0.0.1",
 	"description": "",
-	"types": "./dist/types",
-	"main": "dist/index.js",
-	"scripts": {
-		"build": "tsc",
-		"format": "prettier --ignore-path .gitignore --write .",
-		"dev": "tsc -w"
-	},
 	"keywords": [],
-	"author": "",
 	"license": "MIT",
+	"author": "",
 	"type": "module",
-	"devDependencies": {
-		"@types/node": "^18.13.0",
-		"@types/yargs-parser": "^21.0.0",
-		"typescript": "^4.9.5"
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsup",
+		"dev": "tsc -w",
+		"format": "prettier --ignore-path .gitignore --write ."
 	},
 	"dependencies": {
 		"fs-jetpack": "^5.1.0",
 		"kleur": "^4.1.5",
 		"yargs-parser": "^21.1.1"
+	},
+	"devDependencies": {
+		"@types/node": "^20.10.6",
+		"@types/yargs-parser": "^21.0.3",
+		"tsup": "^8.0.1",
+		"typescript": "^5.3.3"
 	}
 }
