@@ -1,16 +1,16 @@
 import { Command } from "./command";
-import yargsParser from "yargs-parser";
+import yargs_parser from "yargs-parser";
 
 export class Program {
 	private _name: string = "";
 	private _commands: Command[] = [];
 	private _description: string = "";
 	private _version: string = "";
-	private pluginLib: any[] = [];
+	private plugin_lib: any[] = [];
 
 	constructor(name: string) {
 		this._name = name;
-		this.pluginLib = [];
+		this.plugin_lib = [];
 	}
 
 	public description(description: string) {
@@ -18,7 +18,7 @@ export class Program {
 	}
 
 	public plugins(plugins: any[]) {
-		this.pluginLib = plugins;
+		this.plugin_lib = plugins;
 	}
 
 	public version(version: string) {
@@ -27,35 +27,35 @@ export class Program {
 
 	public parse() {
 		// TODO Generate aliases for each command
-		const args = yargsParser(process.argv.slice(2).join(" "), {
+		const args = yargs_parser(process.argv.slice(2).join(" "), {
 			configuration: {
 				"parse-numbers": false,
 				"parse-positional-numbers": false
 			}
 		});
-		this.activateCommand(args);
+		this.activate_command(args);
 		console.log(args);
 		return this;
 	}
 
-	private activateCommand(userArgs: yargsParser.Arguments) {
-		const commandName = userArgs._[0];
+	private activate_command(user_args: yargs_parser.Arguments) {
+		const command_name = user_args._[0];
 		// remove command name from args
-		userArgs._.shift();
+		user_args._.shift();
 
-		const options = userArgs["--"] as string[];
+		const options = user_args["--"] as string[];
 
 		const command = this._commands.find((command) => {
-			return command.name === commandName;
+			return command.name === command_name;
 		});
 
 		if (!command) {
-			console.log(`Command ${commandName} not found`);
+			console.log(`Command ${command_name} not found`);
 			return;
 		}
 
 		const toolbox = {
-			arguments: userArgs._,
+			arguments: user_args._,
 			options: options
 		};
 
