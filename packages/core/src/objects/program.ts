@@ -6,8 +6,24 @@ export class Program {
 	private _commands: Command[] = [
 		new Command({
 			name: "dummy",
-			execute: async () => {
-				console.log("test");
+			subcommands: [
+				new Command({
+					name: "dummy2",
+					subcommands: [
+						new Command({
+							name: "dummy3",
+							execute: async (x: any) => {
+								console.log("test3", x);
+							}
+						})
+					],
+					execute: async (x: any) => {
+						console.log("test2", x);
+					}
+				})
+			],
+			execute: async (x: any) => {
+				console.log("test", x);
 			}
 		})
 	];
@@ -34,36 +50,44 @@ export class Program {
 
 	public parse() {
 		const args = yargs_parser(process.argv.slice(2).join(" "));
-		const { active_command, path_rest } = this.activate_command(args);
-		active_command?.execute(path_rest);
+		this.parse_command(args);
 		return this;
 	}
 
-	private activate_command(user_args: yargs_parser.Arguments) {
-		// TODO - handle subcommands and namespaces
-		let temp_path = user_args._;
-		let resolved_path: (string | number)[] = [];
-		let path_rest: (string | number)[] = [];
-		let active_command: Command;
+	private parse_command(user_args: yargs_parser.Arguments) {
+		const activeCommand = this.find_command(user_args._[0]);
+		if (!activeCommand) {
+			throw new Error("Command not found");
+		}
+		if (!activeCommand.subcommands) {
+			activeCommand.execute(user_args._.slice(1));
+			return;
+		}
+		this.find_subcommand(activeCommand, user_args._.slice(1));
+	}
 
-		for (const arg of user_args._) {
-			resolved_path = [...resolved_path, arg];
-			temp_path = temp_path.slice(1);
-			const potential_command = this._commands.find((command) => command.name === arg);
+	private find_command(command_name: string | number) {
+		return this._commands.find((command) => command.name === command_name);
+	}
 
-			if (potential_command) {
-				path_rest = temp_path;
-				active_command = potential_command;
+	private find_subcommand(command: Command, rest_args: (number | string)[]) {
+		const sub_command = command.subcommands.find((subcommand) => subcommand.name === rest_args[0]);
+		if (!sub_command) {
+			// execute the command
+			if (command.execute) {
+				command.execute(rest_args);
 			}
-		}
 
-		if (!active_command) {
-			throw new Error("No command found");
+			return;
 		}
-
-		return {
-			active_command,
-			path_rest
-		};
+		if (sub_command?.subcommands) {
+			this.find_subcommand(sub_command, rest_args.slice(1));
+		} else {
+			// execute the subcommand
+			if (sub_command.execute) {
+				sub_command.execute(rest_args.slice(1));
+			}
+			return;
+		}
 	}
 }

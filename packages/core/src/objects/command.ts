@@ -12,6 +12,7 @@ export interface CLI_Command {
 	execute: (toolbox: any) => Promise<void>;
 	arguments?: string[];
 	options?: Options[];
+	subcommands?: Command[];
 }
 
 export class Command implements CLI_Command {
@@ -21,6 +22,7 @@ export class Command implements CLI_Command {
 	public arguments?: string[] | undefined;
 	public options?: Options[] | undefined;
 	public path?: string | undefined;
+	public subcommands?: Command[] | undefined;
 
 	constructor(props?: CLI_Command) {
 		this.name = "";
