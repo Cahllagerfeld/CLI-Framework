@@ -41,8 +41,8 @@ export async function Run(this: Runner, args: string | string[]) {
 	// const toolbox = new Toolbox({ arguments: path_rest, options: options });
 	const toolbox = new Toolbox();
 
-	if (active_command?.run) {
-		await active_command.run(toolbox);
+	if (active_command?.execute) {
+		await active_command.execute(toolbox);
 	}
 }
 
