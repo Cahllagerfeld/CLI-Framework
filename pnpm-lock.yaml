@@ -37,7 +37,7 @@ importers:
         version: 21.1.1
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: ^24.10.1
         version: 24.10.1
       '@types/yargs-parser':
         specifier: ^21.0.3
