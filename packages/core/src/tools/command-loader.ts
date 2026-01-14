@@ -12,7 +12,7 @@ export async function load_command_from_file(file: string) {
 
 	command.name = command_module.name;
 	command.description = command_module.description;
-	command.run = command_module.run;
+	command.execute = command_module.execute;
 
 	return command;
 }
