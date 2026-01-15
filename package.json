@@ -15,11 +15,11 @@
 	"author": "Cahllagerfeld",
 	"license": "MIT",
 	"devDependencies": {
-		"@changesets/cli": "^2.29.7",
-		"husky": "^8.0.3",
-		"lint-staged": "^16.2.6",
-		"prettier": "^3.7.1",
-		"rimraf": "^6.1.0"
+		"@changesets/cli": "2.29.7",
+		"husky": "8.0.3",
+		"lint-staged": "16.2.6",
+		"prettier": "3.7.3",
+		"rimraf": "6.1.0"
 	},
 	"lint-staged": {
 		"*.{js,ts}": [

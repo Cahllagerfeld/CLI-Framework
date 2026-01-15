@@ -9,19 +9,19 @@ importers:
   .:
     devDependencies:
       '@changesets/cli':
-        specifier: ^2.29.7
+        specifier: 2.29.7
         version: 2.29.7(@types/node@24.10.1)
       husky:
-        specifier: ^8.0.3
+        specifier: 8.0.3
         version: 8.0.3
       lint-staged:
-        specifier: ^16.2.6
+        specifier: 16.2.6
         version: 16.2.6
       prettier:
-        specifier: ^3.7.1
+        specifier: 3.7.3
         version: 3.7.3
       rimraf:
-        specifier: ^6.1.0
+        specifier: 6.1.0
         version: 6.1.0
 
   packages/core:
@@ -37,16 +37,16 @@ importers:
         version: 21.1.1
     devDependencies:
       '@types/node':
-        specifier: ^24.0.0
+        specifier: 24.10.1
         version: 24.10.1
       '@types/yargs-parser':
-        specifier: ^21.0.3
+        specifier: 21.0.3
         version: 21.0.3
       tsup:
-        specifier: ^8.0.1
+        specifier: 8.5.1
         version: 8.5.1(typescript@5.9.3)(yaml@2.8.1)
       typescript:
-        specifier: ^5.3.3
+        specifier: 5.9.3
         version: 5.9.3
 
 packages:
