@@ -15,7 +15,7 @@
 	"author": "Cahllagerfeld",
 	"license": "MIT",
 	"devDependencies": {
-		"@changesets/cli": "2.29.7",
+		"@changesets/cli": "2.29.8",
 		"husky": "8.0.3",
 		"lint-staged": "16.2.6",
 		"prettier": "3.7.3",
