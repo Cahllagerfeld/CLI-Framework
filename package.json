@@ -17,7 +17,7 @@
 	"devDependencies": {
 		"@changesets/cli": "2.29.7",
 		"husky": "8.0.3",
-		"lint-staged": "16.2.6",
+		"lint-staged": "16.2.7",
 		"prettier": "3.7.3",
 		"rimraf": "6.1.0"
 	},
