@@ -12,8 +12,8 @@ importers:
         specifier: 2.29.7
         version: 2.29.7(@types/node@24.10.1)
       husky:
-        specifier: 8.0.3
-        version: 8.0.3
+        specifier: 9.1.7
+        version: 9.1.7
       lint-staged:
         specifier: 16.2.6
         version: 16.2.6
@@ -683,9 +683,9 @@ packages:
     resolution: {integrity: sha512-v/J+4Z/1eIJovEBdlV5TYj1IR+ZiohcYGRY+qN/oC9dAfKzVT023N/Bgw37hrKCoVRBvk3bqyzpr2PP5YeTMSg==}
     hasBin: true
 
-  husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
-    engines: {node: '>=14'}
+  husky@9.1.7:
+    resolution: {integrity: sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA==}
+    engines: {node: '>=18'}
     hasBin: true
 
   iconv-lite@0.7.0:
@@ -1763,7 +1763,7 @@ snapshots:
 
   human-id@4.1.2: {}
 
-  husky@8.0.3: {}
+  husky@9.1.7: {}
 
   iconv-lite@0.7.0:
     dependencies:
